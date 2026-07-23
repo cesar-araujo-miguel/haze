@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAZE – Meu Mundo 2D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+  <!-- ──HEADER ──-->
+  <header id="header">
+    <div class="header-left">
+      <span class="logo">HAZE</span>
+    </div>
+    <nav class="header-right">
+      <button class="btn btn-ghost" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
+        Sobre o Projeto
+      </button>
+      <button class="btn btn-primary" onclick="document.getElementById('auth').scrollIntoView({behavior:'smooth'})">
+        Participar da Comunidade
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ──BANNER ──-->
+    <div class="fundo-game">
+      <section class="banner" id="banner">
+        <div class="banner-noise"></div>
+        <div class="banner-content">
+          <span class="banner-tag">✦ Game - Dev & Art ✦</span>
+          <h1 class="banner-title">DESCUBRA O MUNDO<br>POR TRÁS DOS GAMES</h1>
+          <p class="banner-sub">Aprenda, jogue, e entenda por que isso importa para mim.</p>
+          <div class="banner-actions">
+            <button class="btn btn-primary btn-lg" onclick="jogar()">
+              <span>▶</span> Jogar
+            </button>
+            <button class="btn btn-outline btn-lg"
+              onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
+              Sobre
+            </button>
+            <a class="btn btn-outline btn-lg" href="comunidade.html">
+              Explorar a Comunidade
+            </a>
+          </div>
+        </div>
+        <div class="banner-scroll-hint">
+          <span>scroll</span>
+          <div class="scroll-line"></div>
+        </div>
+      </section>
+
+      <!-- Game Canvas -->
+      <div class="game-div" id="game_div">
+        <canvas class="game-canvas" id="jogo_canvas"></canvas>
+        <div class="game-footer">
+          <p>Faça parte da nossa comunidade</p>
+          <div class="game-footer-actions">
+            <button class="btn btn-primary"
+              onclick="document.getElementById('auth').scrollIntoView({behavior:'smooth'})">
+              Login
+            </button>
+            <button class="btn btn-ghost btn-sm" onclick="pararJogo()">
+              ✕ Parar jogo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──SOBRE ──-->
+    <section class="sobre" id="sobre">
+      <div class="sobre-header">
+        <h2 class="section-title">Por que desenvolvimento de jogos</h2>
+        <p class="section-sub">Impacto cultural, econômico e pessoal dos jogos – e por que isso importa para mim.</p>
+      </div>
+
+      <div class="carrossel-nav">
+        <button class="seta" onclick="trocarBloco(-1)" aria-label="Anterior">&#8592;</button>
+        <span id="carrossel-titulo" class="carrossel-label">Desenvolvimento de jogos</span>
+        <button class="seta" onclick="trocarBloco(1)" aria-label="Próximo">&#8594;</button>
+      </div>
+
+      <!-- Carrossel 1 -->
+      <div class="blocos" id="blocos-1">
+
+        <div class="blocos-item card-rosa">
+          <div class="card-shine"></div>
+          <div class="card-glow"></div>
+          <div class="blocos-item-main">
+            <span class="bloco-num">01</span>
+            <h3>Impacto Econômico e Cultural dos Jogos</h3>
+            <p>A indústria de games movimenta mais de 180 bilhões de dólares por ano, superando cinema e música. Além
+              disso, atravessa fronteiras culturais, gerando tendências que vão da moda à música. No Brasil, indies como
+              <em>Horizon Chase Turbo</em> e <em>Dandara</em> provam que estúdios nacionais competem globalmente.
+            </p>
+            <span class="bloco-hint">Passe o mouse para saber mais ↗</span>
+          </div>
+          <div class="mais-texto">
+            <h4>Peso Econômico</h4>
+            <p>Em 2024, o faturamento global de games ultrapassou 180 bilhões de dólares, ficando à frente das
+              indústrias cinematográfica e fonográfica. Grandes estúdios (AAA) concentram parte desse mercado, mas
+              plataformas digitais como Steam e Epic Games Store também permitem que pequenos estúdios independentes
+              alcancem milhões de jogadores.</p>
+            <h4>Audiência e Comunidades</h4>
+            <p>Jogos populares criam subculturas dedicadas: e-sports movimentam milhões em premiações (ex.: torneios de
+              <em>League of Legends</em> e <em>Dota 2</em>), enquanto streamers atraem audiências enormes, gerando
+              patrocínios e parcerias.
+            </p>
+            <h4>Cenário Brasileiro</h4>
+            <p>Títulos como <em>Horizon Chase Turbo</em> (Aquiris) e <em>Dandara</em> (Long Hat House) mostram a força
+              criativa de desenvolvedores nacionais. Eventos como a Brazil Game Show reúnem milhares de profissionais,
+              fomentando networking e crescimento do setor.</p>
+          </div>
+        </div>
+
+        <div class="blocos-item card-azul">
+          <div class="card-shine"></div>
+          <div class="card-glow"></div>
+          <div class="blocos-item-main">
+            <span class="bloco-num">02</span>
+            <h3>Jogos como Ferramenta de Autodescoberta</h3>
+            <p>Criar ou jogar games pode gerar estados de "flow" que ajudam a aliviar o estresse e aprimorar foco e
+              criatividade. Montar um protótipo simples ensina colaboração e resolução de problemas. Narrativas em
+              títulos como <em>Celeste</em> convidam a reflexões sobre ansiedade e empatia.</p>
+            <span class="bloco-hint">Passe o mouse para saber mais ↗</span>
+          </div>
+          <div class="mais-texto">
+            <h4>Fluxo e Engajamento Emocional</h4>
+            <p>Segundo Mihaly Csikszentmihalyi, o "flow" ocorre quando pessoa e atividade se fundem em foco absoluto. Em
+              jogos, esse estado reduz o estresse, pois o cérebro se concentra em desafios claros.</p>
+            <h4>Descoberta de Habilidades</h4>
+            <p>Ferramentas como Scratch, Construct ou GameMaker permitem que qualquer iniciante construa um protótipo em
+              poucas horas. Ao experimentar, o indivíduo descobre aptidões em programação, design gráfico ou narrativa.
+            </p>
+            <h4>Narrativa e Reflexão Pessoal</h4>
+            <p>Jogos com narrativas potentes (ex.: <em>Life Is Strange</em>, <em>Undertale</em>) colocam o jogador
+              diante de escolhas morais e dilemas emocionais, gerando insights sobre a própria vida.</p>
+            <h4>Colaboração e Comunidade</h4>
+            <p>Em títulos multiplayer, o trabalho em equipe desenvolve comunicação e empatia. Eventos de game jam
+              estimulam equipes pequenas a criar protótipos em tempo limitado, reforçando planejamento e inovação.</p>
+          </div>
+        </div>
+
+        <div class="blocos-item card-verde">
+          <div class="card-shine"></div>
+          <div class="card-glow"></div>
+          <div class="blocos-item-main">
+            <span class="bloco-num">03</span>
+            <h3>Jogos Digitais como Arte e Expressão</h3>
+            <p>Títulos como <em>Journey</em> e <em>Gris</em> provam que games são obras de arte interativas, unindo
+              estética, som e mecânica para transmitir emoções. Experiências procedurais como <em>No Man's Sky</em>
+              exploram paisagens geradas por algoritmos.</p>
+            <span class="bloco-hint">Passe o mouse para saber mais ↗</span>
+          </div>
+          <div class="mais-texto">
+            <h4>Arte Interativa</h4>
+            <p>Jogos como <em>Journey</em> utilizam direção de arte minimalista e trilha sonora envolvente para criar
+              experiências poéticas. Em <em>Gris</em>, a paleta aquarelada simboliza a jornada emocional da
+              protagonista.</p>
+            <h4>Processos Procedurais</h4>
+            <p>Títulos como <em>No Man's Sky</em> e <em>Spelunky</em> aplicam algoritmos de geração procedural, criando
+              uma interseção entre código e arte onde o próprio algoritmo se torna parte do processo criativo.</p>
+            <h4>Crítica Social</h4>
+            <p>Em <em>Papers, Please</em>, o jogador assume o papel de um inspetor de imigração em regime ditatorial,
+              enfrentando dilemas morais. O MOMA em Nova York já incluiu jogos digitais em exposições, reconhecendo-os
+              como obras de design e expressão cultural.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carrossel 2 -->
+      <div class="blocos desativado" id="blocos-2">
+
+        <div class="blocos-item card-amarelo">
+          <div class="card-shine"></div>
+          <div class="card-glow"></div>
+          <div class="blocos-item-main">
+            <span class="bloco-num">01</span>
+            <h3>Importância dos Jogos na Minha Vida</h3>
+            <p>Desde criança, os jogos me ensinaram a pensar estrategicamente e a resolver problemas de forma criativa.
+              Eles me ofereceram momentos de diversão que serviram de refúgio em fases difíceis. Foi jogando que
+              descobri meu interesse por tecnologia e computação.</p>
+            <span class="bloco-hint">Passe o mouse para saber mais ↗</span>
+          </div>
+          <div class="mais-texto">
+            <h4>Primeiros Contatos</h4>
+            <p>Me lembro de passar horas no meu primeiro videogame, um PlayStation 2, explorando mundos fantásticos.
+              Jogos como <em>Crash Bandicoot</em> e <em>Spyro</em> não eram apenas diversão, mas desafios que
+              estimulavam minha mente e me ensinaram paciência.</p>
+            <h4>Refúgio Emocional</h4>
+            <p>Em fases de ansiedade na adolescência, jogar me ajudou a relaxar e a canalizar energias de forma
+              positiva.</p>
+            <h4>Porta para a Tecnologia</h4>
+            <p>Foi ao tentar modificar um save de <em>Pokémon</em> que descobri como funcionava a parte técnica dos
+              jogos, o que me motivou a estudar desenvolvimento de jogos e Ciência da Computação.</p>
+            <h4>Conexões Sociais</h4>
+            <p>As partidas online com amigos criaram laços que se mantêm até hoje, mostrando como a interação em games
+              pode fortalecer amizades e ensinar cooperação.</p>
+          </div>
+        </div>
+
+        <div class="blocos-item card-roxo">
+          <div class="card-shine"></div>
+          <div class="card-glow"></div>
+          <div class="blocos-item-main">
+            <span class="bloco-num">02</span>
+            <h3>Valores que os Jogos Me Trouxeram</h3>
+            <p>Jogar me ensinou persistência: cada falha virou motivação para tentar de novo. Aprendi a pensar em equipe
+              ao participar de partidas multiplayer. A criatividade surgiu ao enfrentar puzzles e desafios inéditos.</p>
+            <span class="bloco-hint">Passe o mouse para saber mais ↗</span>
+          </div>
+          <div class="mais-texto">
+            <h4>Persistência</h4>
+            <p>Em jogos como <em>Dark Souls</em> ou <em>Celeste</em>, repetir fases várias vezes faz parte do
+              aprendizado. Cada derrota me motivava a refinar estratégias, mentalidade que aplico em projetos acadêmicos
+              e pessoais.</p>
+            <h4>Trabalho em Equipe</h4>
+            <p>Em títulos multiplayer cooperativos como <em>Overwatch</em>, precisei coordenar ações com outros
+              jogadores. Isso me ajudou a desenvolver comunicação clara e confiança na colaboração.</p>
+            <h4>Criatividade e Resiliência</h4>
+            <p>Enfrentar puzzles ou criar níveis no modo sandbox estimulou minha imaginação. O ciclo de tentar, falhar,
+              adaptar e vencer refletiu‐se em minha vida pessoal, ajudando a lidar melhor com prazos e exigências
+              acadêmicas.</p>
+          </div>
+        </div>
+
+        <div class="blocos-item card-laranja">
+          <div class="card-shine"></div>
+          <div class="card-glow"></div>
+          <div class="blocos-item-main">
+            <span class="bloco-num">03</span>
+            <h3>Desafios e Superações neste Projeto</h3>
+            <p>Aprender HTML e CSS praticamente do zero foi um grande desafio. Conciliar este projeto com o UMIDO e as
+              tarefas da faculdade exigiu muita organização e dedicação.</p>
+            <span class="bloco-hint">Passe o mouse para saber mais ↗</span>
+          </div>
+          <div class="mais-texto">
+            <h4>Falta de Experiência em Web</h4>
+            <p>Antes de começar, eu tinha pouca familiaridade com HTML e CSS. Passei semanas fazendo tutoriais sobre
+              layout responsivo e grids, refazendo exemplos até me sentir confortável para criar esta página.</p>
+            <h4>Gestão de Tempo</h4>
+            <p>Em paralelo a este site, participei do projeto UMIDO e ainda tinha provas e trabalhos da faculdade. Criei
+              um cronograma semanal dedicando algumas horas à noite para o site.</p>
+            <h4>Mini-Curso e Feedback Constante</h4>
+            <p>Inscrevi-me em um curso online de HTML/CSS no freeCodeCamp e compartilhei rascunhos com colegas e
+              professores, ajustando cores, fontes e espaçamento conforme orientação. Cada crítica recebida foi usada
+              para melhorar.</p>
+          </div>
+        </div>
+
+        <div class="blocos-item card-rosa">
+          <div class="card-shine"></div>
+          <div class="card-glow"></div>
+          <div class="blocos-item-main">
+            <span class="bloco-num">04</span>
+            <h3>Agradecimentos</h3>
+            <p>Aqui, agradeço a todos que contribuíram para o sucesso deste projeto, desde professores e colegas até
+              minha família e amigos. Agradeço também às fontes de inspiração que me ajudaram a desenvolver este site.
+            </p>
+            <span class="bloco-hint">Passe o mouse para saber mais ↗</span>
+          </div>
+          <div class="mais-texto">
+            <h4>Prof. Marcela</h4>
+            <p>Sua orientação na disciplina de Socioemocional foi fundamental para entender como relacionar minhas
+              experiências pessoais ao tema de jogos. Obrigado pelas revisões detalhadas e sugestões de exemplos mais
+              contextualizados.</p>
+            <h4>Colegas de PI</h4>
+            <p>Erick me ajudou a depurar problemas de CSS e sugeriu usar cores contrastantes para acessibilidade. Outros
+              colegas também deram feedbacks valiosos sobre layout e organização do conteúdo.</p>
+            <h4>Família, Amigos e Referências</h4>
+            <p>Minha família me incentivou a seguir meus interesses desde a infância. Agradeço também aos criadores de
+              conteúdo e blogs especializados em game dev cujos tutoriais me auxiliaram desde conceitos básicos até
+              técnicas avançadas de design de interface.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ──AUTH ──-->
+    <section class="auth" id="auth">
+
+      <div id="mensagem-alerta" class="alerta" role="alert"></div>
+
+      <div class="auth-wrapper">
+        <div class="auth-info">
+          <h2 class="section-title">Junte-se à comunidade</h2>
+          <p class="section-sub">Entre ou crie uma conta para salvar seu progresso e fazer parte da comunidade HAZE.</p>
+          <ul class="auth-benefits">
+            <li>✦ Salve seu progresso no jogo</li>
+            <li>✦ Acesse a comunidade de jogadores</li>
+            <li>✦ Compartilhe sua experiência</li>
+          </ul>
+        </div>
+
+        <div class="auth-container">
+          <div class="auth-tabs">
+            <button class="auth-tab active" id="tab-login" onclick="mostrarLogin()">Login</button>
+            <button class="auth-tab" id="tab-cadastro" onclick="mostrarCadastro()">Cadastro</button>
+          </div>
+
+          <!-- Login -->
+          <form class="auth-form" id="div-login">
+            <div class="field">
+              <label for="login-email">E-mail</label>
+              <input id="login-email" type="email" placeholder="seu@email.com" required>
+            </div>
+            <div class="field">
+              <label for="login-senha">Senha</label>
+              <input id="login-senha" type="password" placeholder="••••••••" required>
+            </div>
+            <button type="button" class="btn btn-primary btn-full" onclick="logar()">Entrar</button>
+          </form>
+
+          <!-- Cadastro -->
+          <form class="auth-form" id="div-cadastro" style="display:none;">
+
+            <div class="field">
+              <label for="cadastro-nome">Nome completo</label>
+              <input id="cadastro-nome" type="text" placeholder="Seu nome" required>
+              <span class="field-erro">Informe seu nome completo (mín. 3 caracteres).</span>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="cadastro-usuario">Usuário</label>
+                <input id="cadastro-usuario" type="text" placeholder="seu_usuario" required>
+                <span class="field-erro">Usuário deve ter entre 3 e 20 caracteres, sem espaços.</span>
+              </div>
+              <div class="field">
+                <label for="cadastro-email">E-mail</label>
+                <input id="cadastro-email" type="email" placeholder="seu@email.com" required>
+                <span class="field-erro">Informe um e-mail válido.</span>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="cadastro-senha">Senha</label>
+                <input id="cadastro-senha" type="password" placeholder="••••••••" required>
+                <span class="field-erro">Senha deve ter pelo menos 6 caracteres.</span>
+              </div>
+              <div class="field">
+                <label for="cadastro-confirmar">Confirmar senha</label>
+                <input id="cadastro-confirmar" type="password" placeholder="••••••••" required>
+                <span class="field-erro">As senhas não coincidem.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="cadastro-nascimento">Data de nascimento</label>
+              <input id="cadastro-nascimento" type="date" required>
+              <span class="field-erro">Informe uma data válida. Você deve ter pelo menos 13 anos.</span>
+            </div>
+
+            <div class="field">
+              <label class="field-label-group">Plataforma favorita</label>
+              <div class="radio-group">
+                <label class="radio-item"><input type="radio" name="plataforma" value="pc" required><span>💻
+                    PC</span></label>
+                <label class="radio-item"><input type="radio" name="plataforma" value="console"><span>🎮
+                    Console</span></label>
+                <label class="radio-item"><input type="radio" name="plataforma" value="mobile"><span>📱
+                    Mobile</span></label>
+                <label class="radio-item"><input type="radio" name="plataforma" value="todos"><span>🕹️
+                    Todos</span></label>
+              </div>
+              <span class="field-erro">Selecione uma plataforma.</span>
+            </div>
+
+            <div class="field">
+              <label class="field-label-group">Gêneros favoritos</label>
+              <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox" value="rpg"> RPG</label>
+                <label class="checkbox-item"><input type="checkbox" value="fps"> FPS</label>
+                <label class="checkbox-item"><input type="checkbox" value="aventura"> Aventura</label>
+                <label class="checkbox-item"><input type="checkbox" value="puzzle"> Puzzle</label>
+                <label class="checkbox-item"><input type="checkbox" value="plataforma"> Plataforma</label>
+                <label class="checkbox-item"><input type="checkbox" value="estrategia"> Estratégia</label>
+              </div>
+              <span class="field-erro">Selecione pelo menos um gênero.</span>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="cadastro-jogo">Jogo favorito</label>
+                <select id="cadastro-jogo" required>
+                  <option value="" disabled selected>Carregando jogos...</option>
+                </select>
+                <span class="field-erro">Selecione um jogo favorito.</span>
+              </div>
+
+              <div class="field" style="max-width: 30%;">
+                <label for="cadastro-horas">Horas</label>
+                <input id="cadastro-horas" type="number" placeholder="Ex: 350" min="0" max="99999">
+                <span class="field-erro">Informe um valor entre 0 e 99.999 horas.</span>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-full" onclick="cadastrar()">Criar Conta</button>
+
+          </form>
+          <p class="auth-visitante">
+            Só quer explorar? <a href="comunidade.html">Entre como visitante →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──FOOTER ──-->
+    <footer>
+      <p>© 2025 <strong>HAZE</strong> — Criado por Beinho</p>
+    </footer>
+
+  </main>
+
+
+  
+
+  <script src="js/index.js"></script>
+  <script src="data/collisions.js"></script>
+  <script src="js/game.js"></script>
+
+</body>
+
+</html>

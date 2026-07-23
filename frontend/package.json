@@ -1,0 +1,15 @@
+{
+  "name": "haze-frontend",
+  "version": "1.0.0",
+  "description": "Frontend do projeto HAZE",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon --exec node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.0.3",
+    "cors": "^2.8.5"
+  }
+}

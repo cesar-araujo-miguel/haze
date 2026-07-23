@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunidade – HAZE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/comunidade.css">
+  
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <a href="index.html" class="logo">HAZE</a>
+    <nav class="header-right">
+      <a class="btn btn-ghost" href="comunidade.html">Comunidade</a>
+      <a class="btn btn-ghost" href="dashboard.html">Dashboard</a>
+      <a class="btn btn-primary" href="perfil.html" id="nav-perfil">Perfil</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="comunidade-hero">
+    <div class="hero-content">
+      <span class="banner-tag">✦ espaço dos jogadores</span>
+      <h1 class="banner-title">Comunidade HAZE</h1>
+      <p class="banner-sub">Compartilhe sua arte, discuta ideias e conecte-se com outros jogadores.</p>
+    </div>
+  </section>
+
+  <!-- TABS -->
+  <div class="tabs-wrapper">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="mural">🎨 Mural de Arte</button>
+      <button class="tab-btn" data-tab="forum">💬 Fórum</button>
+    </div>
+    <div class="filtros">
+      <input type="text" id="busca" placeholder="Buscar...">
+      <select id="ordenar">
+        <option value="recentes">Mais Recentes</option>
+        <option value="antigas">Mais Antigas</option>
+        <option value="populares">Mais Populares</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <main class="conteudo">
+
+    <!-- Mural -->
+    <div class="conteudo-tab" id="mural">
+      <div class="conteudo-header">
+        <h2 class="conteudo-titulo">Mural de Arte</h2>
+        <button class="btn btn-primary" id="novaPostagemMural">+ Nova Arte</button>
+      </div>
+      <div class="grid-mural" id="lista-mural">
+        <div class="empty-state" id="mural-empty">
+          <span>🎨</span>
+          <p>Nenhuma arte publicada ainda.<br>Seja o primeiro!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fórum -->
+    <div class="conteudo-tab" id="forum" style="display:none;">
+      <div class="conteudo-header">
+        <h2 class="conteudo-titulo">Fórum</h2>
+        <div class="conteudo-header-acoes">
+          <select id="filtro-categoria" class="filtro-categoria">
+            <option value="">Todas as categorias</option>
+          </select>
+          <button class="btn btn-primary" id="novaPostagemForum">+ Nova Discussão</button>
+        </div>
+      </div>
+      <ul class="lista-posts" id="lista-forum">
+        <div class="empty-state" id="forum-empty">
+          <span>💬</span>
+          <p>Nenhuma discussão ainda.<br>Comece uma conversa!</p>
+        </div>
+      </ul>
+    </div>
+
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-conteudo">
+      <button class="modal-fechar" id="fecharModal">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ALERTA -->
+  <div class="alerta" id="alerta"></div>
+
+  <script src="./js/comunidade.js"></script>
+</body>
+</html>

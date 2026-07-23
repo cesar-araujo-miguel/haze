@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil – HAZE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/perfil.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <a href="index.html" class="logo">HAZE</a>
+    <nav class="header-right">
+      <a class="btn btn-ghost" href="comunidade.html">Comunidade</a>
+      <a class="btn btn-ghost" href="dashboard.html">Dashboard</a>
+      <a class="btn btn-primary" href="perfil.html" id="nav-perfil">Perfil</a>
+    </nav>
+  </header>
+
+  <main class="perfil-main">
+
+    <!-- CARD DE PERFIL -->
+    <section class="perfil-card" id="perfil-card">
+
+      <!-- Avatar -->
+      <div class="perfil-avatar-wrapper">
+        <img id="avatar-img" src="/assets/pfp/default.png" alt="Avatar">
+        <label class="avatar-edit-btn" id="avatar-edit-btn" title="Trocar foto" style="display:none;">
+          📷
+          <input type="file" id="avatar-file" accept="image/*">
+        </label>
+      </div>
+
+      <!-- Info principal -->
+      <div class="perfil-info">
+        <div class="perfil-top">
+          <div>
+            <h1 class="perfil-username" id="perfil-username">—</h1>
+            <p class="perfil-nome" id="perfil-nome"></p>
+          </div>
+          <button class="btn btn-primary" id="btn-editar" style="display:none;">✏️ Editar Perfil</button>
+        </div>
+
+        <p class="perfil-bio" id="perfil-bio">Sem bio definida.</p>
+
+        <!-- Tags de info -->
+        <div class="perfil-tags" id="perfil-tags"></div>
+      </div>
+
+    </section>
+
+    <!-- FORMULÁRIO DE EDIÇÃO (oculto por padrão) -->
+    <section class="perfil-form-section" id="perfil-form" style="display:none;">
+      <h2 class="form-titulo">Editar Perfil</h2>
+      <div class="perfil-form-grid">
+
+        <div class="field">
+          <label for="edit-username">Usuário</label>
+          <input type="text" id="edit-username" maxlength="20">
+        </div>
+
+        <div class="field">
+          <label for="edit-bio">Bio</label>
+          <textarea id="edit-bio" rows="3" maxlength="300" placeholder="Conte um pouco sobre você..."></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label-group">Plataforma favorita</label>
+          <div class="radio-group" id="edit-plataforma">
+            <label class="radio-item"><input type="radio" name="plataforma" value="pc"><span>💻 PC</span></label>
+            <label class="radio-item"><input type="radio" name="plataforma" value="console"><span>🎮 Console</span></label>
+            <label class="radio-item"><input type="radio" name="plataforma" value="mobile"><span>📱 Mobile</span></label>
+            <label class="radio-item"><input type="radio" name="plataforma" value="todos"><span>🕹️ Todos</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label-group">Gêneros favoritos</label>
+          <div class="checkbox-group" id="edit-generos">
+            <label class="checkbox-item"><input type="checkbox" value="rpg"> RPG</label>
+            <label class="checkbox-item"><input type="checkbox" value="fps"> FPS</label>
+            <label class="checkbox-item"><input type="checkbox" value="aventura"> Aventura</label>
+            <label class="checkbox-item"><input type="checkbox" value="puzzle"> Puzzle</label>
+            <label class="checkbox-item"><input type="checkbox" value="plataforma"> Plataforma</label>
+            <label class="checkbox-item"><input type="checkbox" value="estrategia"> Estratégia</label>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="edit-jogo">Jogo favorito</label>
+            <select id="edit-jogo">
+              <option value="">Selecione...</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="edit-horas">Horas no jogo favorito</label>
+            <input type="number" id="edit-horas" min="0" max="99999" placeholder="Ex: 350">
+          </div>
+        </div>
+
+        <div class="form-acoes">
+          <button class="btn btn-primary" id="btn-salvar">Salvar Alterações</button>
+          <button class="btn btn-ghost" id="btn-cancelar" style="border:2.5px solid var(--dark);">Cancelar</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- POSTS DO USUÁRIO -->
+    <section class="perfil-posts">
+      <div class="posts-tabs">
+        <button class="posts-tab active" data-tab="mural">🎨 Mural</button>
+        <button class="posts-tab" data-tab="forum">💬 Fórum</button>
+      </div>
+
+      <div class="posts-conteudo" id="posts-mural">
+        <div class="posts-grid" id="lista-mural-perfil"></div>
+        <div class="empty-state" id="mural-empty" style="display:none;">
+          <span>🎨</span><p>Nenhuma arte publicada ainda.</p>
+        </div>
+      </div>
+
+      <div class="posts-conteudo" id="posts-forum" style="display:none;">
+        <ul class="posts-lista" id="lista-forum-perfil"></ul>
+        <div class="empty-state" id="forum-empty" style="display:none;">
+          <span>💬</span><p>Nenhum post no fórum ainda.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ALERTA -->
+  <div class="alerta" id="alerta"></div>
+
+  
+  <script src="./js/perfil.js"></script>
+
+</body>
+</html>

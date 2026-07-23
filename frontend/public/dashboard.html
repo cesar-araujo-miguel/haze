@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – HAZE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <a href="index.html" class="logo">HAZE</a>
+    <nav class="header-right">
+      <a class="btn btn-ghost" href="comunidade.html">Comunidade</a>
+      <a class="btn btn-ghost" href="dashboard.html">Dashboard</a>
+      <a class="btn btn-primary" href="perfil.html" id="nav-perfil">Perfil</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="dash-hero">
+    <div class="hero-content">
+      <span class="banner-tag">✦ visão geral</span>
+      <h1 class="banner-title">Dashboard</h1>
+      <p class="banner-sub">Acompanhe a atividade e as estatísticas da comunidade HAZE.</p>
+    </div>
+  </section>
+
+  <main class="dash-main">
+
+    <!-- ESTATÍSTICAS GERAIS -->
+    <section class="stats-grid" id="stats-grid">
+      <div class="stat-card" style="--i:0">
+        <span class="stat-icon">👤</span>
+        <span class="stat-value" id="stat-usuarios">—</span>
+        <span class="stat-label">Usuários</span>
+      </div>
+      <div class="stat-card" style="--i:1">
+        <span class="stat-icon">🎨</span>
+        <span class="stat-value" id="stat-imagens">—</span>
+        <span class="stat-label">Artes no Mural</span>
+      </div>
+      <div class="stat-card" style="--i:2">
+        <span class="stat-icon">💬</span>
+        <span class="stat-value" id="stat-posts">—</span>
+        <span class="stat-label">Posts no Fórum</span>
+      </div>
+      <div class="stat-card" style="--i:3">
+        <span class="stat-icon">📝</span>
+        <span class="stat-value" id="stat-comentarios">—</span>
+        <span class="stat-label">Comentários</span>
+      </div>
+      <div class="stat-card" style="--i:4">
+        <span class="stat-icon">▲</span>
+        <span class="stat-value" id="stat-upvotes">—</span>
+        <span class="stat-label">Upvotes</span>
+      </div>
+      <div class="stat-card" style="--i:5">
+        <span class="stat-icon">▼</span>
+        <span class="stat-value" id="stat-downvotes">—</span>
+        <span class="stat-label">Downvotes</span>
+      </div>
+    </section>
+
+    <!-- GRID PRINCIPAL -->
+    <section class="dash-grid">
+
+      <!-- Usuários mais ativos -->
+      <div class="dash-card" style="--i:0">
+        <div class="dash-card-header">
+          <h2>🔥 Usuários Mais Ativos</h2>
+        </div>
+        <ul class="ranking-list" id="usuariosAtivos">
+          <li class="skeleton"></li>
+          <li class="skeleton"></li>
+          <li class="skeleton"></li>
+        </ul>
+      </div>
+
+      <!-- Top imagens -->
+      <div class="dash-card dash-card-wide" style="--i:1">
+        <div class="dash-card-header">
+          <h2>🖼️ Top Imagens do Mural</h2>
+        </div>
+        <div class="top-imagens-grid" id="topImagens">
+          <div class="skeleton img-skeleton"></div>
+          <div class="skeleton img-skeleton"></div>
+          <div class="skeleton img-skeleton"></div>
+        </div>
+      </div>
+
+      <!-- Atividade recente -->
+      <div class="dash-card" style="--i:2">
+        <div class="dash-card-header">
+          <h2>📅 Atividade Recente</h2>
+        </div>
+        <ul class="atividade-list" id="atividadeRecente">
+          <li class="skeleton"></li>
+          <li class="skeleton"></li>
+          <li class="skeleton"></li>
+        </ul>
+      </div>
+
+      <!-- Gráfico posts por usuário -->
+      <div class="dash-card" style="--i:3">
+        <div class="dash-card-header">
+          <h2>📊 Posts por Usuário</h2>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="chartPosts"></canvas>
+        </div>
+      </div>
+
+      <!-- Gráfico distribuição avaliações -->
+      <div class="dash-card" style="--i:4">
+        <div class="dash-card-header">
+          <h2>⭐ Distribuição de Avaliações</h2>
+        </div>
+        <div class="chart-wrapper chart-wrapper-pie">
+          <canvas id="chartAvaliacoes"></canvas>
+        </div>
+      </div>
+
+      <!-- Gráfico votos -->
+      <div class="dash-card" style="--i:5">
+        <div class="dash-card-header">
+          <h2>👍 Votos da Comunidade</h2>
+        </div>
+        <div class="chart-wrapper chart-wrapper-pie">
+          <canvas id="chartVotos"></canvas>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  
+  <script src="./js/dashboard.js"></script>
+
+</body>
+</html>
